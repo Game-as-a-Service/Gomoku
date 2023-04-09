@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Work\\AfterWork\\遊戲微服務\\Gomoku\\Domain\\Domain\\Domain.csproj",
+      "projectUniqueName": "D:\\AfterWork\\遊戲微服務\\Gomoku\\Domain\\Domain\\Domain.csproj",
       "projectName": "Domain",
-      "projectPath": "D:\\Work\\AfterWork\\遊戲微服務\\Gomoku\\Domain\\Domain\\Domain.csproj",
+      "projectPath": "D:\\AfterWork\\遊戲微服務\\Gomoku\\Domain\\Domain\\Domain.csproj",
       "packagesPath": "C:\\Users\\Felix\\.nuget\\packages\\",
-      "outputPath": "D:\\Work\\AfterWork\\遊戲微服務\\Gomoku\\Domain\\Domain\\obj\\",
+      "outputPath": "D:\\AfterWork\\遊戲微服務\\Gomoku\\Domain\\Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "OgQ7MlMracc917UykLq/iAXx/htTEuVj8JYdlQF1I8CcoWkgMzTB+yyvu5gRLZtdQXMBL5e/Cwdcg+8OtnxVrw==",
+  "dgSpecHash": "cKub4DVvdvLyGG7Za6jz/4J3rRcl78+6WyFE7SnCInNhPrxSJ34125YTn2JR+Rt484XTMci9OSdd5MHvhtPVoQ==",
   "success": true,
-  "projectFilePath": "D:\\Work\\AfterWork\\遊戲微服務\\Gomoku\\Domain\\Domain\\Domain.csproj",
+  "projectFilePath": "D:\\AfterWork\\遊戲微服務\\Gomoku\\Domain\\Domain\\Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

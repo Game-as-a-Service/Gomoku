@@ -8,10 +8,12 @@ namespace Domain
         {
 
         }
-        public void SetFirst() { 
+        public void SetFirst()
+        {
 
         }
-        public void SetRole(Role role) {
+        public void SetRole(Role role)
+        {
         
         }
         public void NextPlayer()

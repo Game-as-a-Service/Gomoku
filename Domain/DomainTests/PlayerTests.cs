@@ -17,23 +17,28 @@ namespace Domain.Tests
         [TestMethod()]
         ///<summary>
         ///Given：
-        ///<para>已有棋子：E7、F7、G7、H7</para>
+        ///<para>黑棋已有：E7、F7、G7、H7</para>
+        ///<para>白棋已有：E8、F8、G8、H87</para>
         ///<para>When：</para>
-        ///<para>下棋：I7</para>
+        ///<para>黑方下棋：I7</para>
         ///<para>Then：</para>
         ///<para>玩家獲勝</para>
         /// </summary>
-        public void putTest()
+        public void AfterPutPlayerWinTest()
         {
             Board board = new Board();
-            board._board[(int)Columns.E, 7] = 2;
-            board._board[(int)Columns.F, 7] = 2;
-            board._board[(int)Columns.G, 7] = 2;
-            board._board[(int)Columns.H, 7] = 2;
-
-            Player player = new Player();
-            var t = Columns.I;
-            player.put(new Position
+            #region 設定已有棋子
+            board._board[(int)Columns.E, 7] = (int)ChessType.Black;
+            board._board[(int)Columns.F, 7] = (int)ChessType.Black;
+            board._board[(int)Columns.G, 7] = (int)ChessType.Black;
+            board._board[(int)Columns.H, 7] = (int)ChessType.Black;
+            board._board[(int)Columns.E, 8] = (int)ChessType.White;
+            board._board[(int)Columns.F, 8] = (int)ChessType.White;
+            board._board[(int)Columns.G, 8] = (int)ChessType.White;
+            board._board[(int)Columns.H, 8] = (int)ChessType.White;
+            #endregion
+            Player player = new Player((int)ChessType.Black);
+            player.put(board, new Position
             {
                 columns = (int)Columns.I,
                 row = 7,
