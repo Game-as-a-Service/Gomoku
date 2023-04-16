@@ -1,4 +1,5 @@
-﻿using Domain.Model;
+﻿using Domain.Board;
+using Domain.Model;
 
 namespace Domain
 {
@@ -9,7 +10,7 @@ namespace Domain
         {
             this.chessType = chessType;
         }
-        public void put(Board board, Position position)
+        public void put(BoardFactory board, Position position)
         {
             board.set(position, chessType);
         }

@@ -1,12 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Domain.Model;
 using Domain.Enum;
+using Domain.Board;
 
 namespace Domain.Tests
 {
@@ -26,19 +21,53 @@ namespace Domain.Tests
         /// </summary>
         public void AfterPutPlayerWinTest()
         {
-            Board board = new Board();
+            BoardFactory board = new BoardFactory();
+            Player blackPlayer = new Player((int)ChessType.Black);
+            Player whitePlayer = new Player((int)ChessType.White);
             #region 設定已有棋子
-            board._board[(int)Columns.E, 7] = (int)ChessType.Black;
-            board._board[(int)Columns.F, 7] = (int)ChessType.Black;
-            board._board[(int)Columns.G, 7] = (int)ChessType.Black;
-            board._board[(int)Columns.H, 7] = (int)ChessType.Black;
-            board._board[(int)Columns.E, 8] = (int)ChessType.White;
-            board._board[(int)Columns.F, 8] = (int)ChessType.White;
-            board._board[(int)Columns.G, 8] = (int)ChessType.White;
-            board._board[(int)Columns.H, 8] = (int)ChessType.White;
+            blackPlayer.put(board, new Position
+            {
+                columns = (int)Columns.E,
+                row = 7,
+            });
+            blackPlayer.put(board, new Position
+            {
+                columns = (int)Columns.F,
+                row = 7,
+            });
+            blackPlayer.put(board, new Position
+            {
+                columns = (int)Columns.G,
+                row = 7,
+            });
+            blackPlayer.put(board, new Position
+            {
+                columns = (int)Columns.H,
+                row = 7,
+            });
+            whitePlayer.put(board, new Position
+            {
+                columns = (int)Columns.E,
+                row = 8,
+            });
+            whitePlayer.put(board, new Position
+            {
+                columns = (int)Columns.F,
+                row = 8,
+            });
+            whitePlayer.put(board, new Position
+            {
+                columns = (int)Columns.G,
+                row = 8,
+            });
+            whitePlayer.put(board, new Position
+            {
+                columns = (int)Columns.H,
+                row = 8,
+            });
             #endregion
-            Player player = new Player((int)ChessType.Black);
-            player.put(board, new Position
+
+            blackPlayer.put(board, new Position
             {
                 columns = (int)Columns.I,
                 row = 7,
