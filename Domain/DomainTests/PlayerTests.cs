@@ -25,54 +25,19 @@ namespace Domain.Tests
             Player blackPlayer = new Player((int)ChessType.Black);
             Player whitePlayer = new Player((int)ChessType.White);
             #region 設定已有棋子
-            blackPlayer.put(board, new Position
-            {
-                columns = (int)Columns.E,
-                row = 7,
-            });
-            blackPlayer.put(board, new Position
-            {
-                columns = (int)Columns.F,
-                row = 7,
-            });
-            blackPlayer.put(board, new Position
-            {
-                columns = (int)Columns.G,
-                row = 7,
-            });
-            blackPlayer.put(board, new Position
-            {
-                columns = (int)Columns.H,
-                row = 7,
-            });
-            whitePlayer.put(board, new Position
-            {
-                columns = (int)Columns.E,
-                row = 8,
-            });
-            whitePlayer.put(board, new Position
-            {
-                columns = (int)Columns.F,
-                row = 8,
-            });
-            whitePlayer.put(board, new Position
-            {
-                columns = (int)Columns.G,
-                row = 8,
-            });
-            whitePlayer.put(board, new Position
-            {
-                columns = (int)Columns.H,
-                row = 8,
-            });
+            blackPlayer.put(board, new Position((int)Columns.E, 7));
+            blackPlayer.put(board, new Position((int)Columns.F, 7));
+            blackPlayer.put(board, new Position((int)Columns.G, 7));
+            blackPlayer.put(board, new Position((int)Columns.H, 7));
+            whitePlayer.put(board, new Position((int)Columns.E, 8));
+            whitePlayer.put(board, new Position((int)Columns.F, 8));
+            whitePlayer.put(board, new Position((int)Columns.G, 8));
+            whitePlayer.put(board, new Position((int)Columns.H, 8));
             #endregion
 
-            blackPlayer.put(board, new Position
-            {
-                columns = (int)Columns.I,
-                row = 7,
-            });
-            Assert.Fail();
+            blackPlayer.put(board, new Position((int)Columns.I, 7));
+            
+            Assert.AreEqual((int)ChessType.Black, board._winner);
         }
     }
 }

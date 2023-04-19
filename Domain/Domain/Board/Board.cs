@@ -1,5 +1,4 @@
 ﻿using Domain.Board.Board;
-using Domain.Enum.Board;
 using Domain.Model;
 
 namespace Domain.Board
