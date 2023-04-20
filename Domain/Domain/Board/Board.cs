@@ -12,8 +12,12 @@ namespace Domain.Board
                 return false;
             }
             this._lastChessType = chessType;
-            this.board[position.row, position.columns] = chessType;
+            board[position.row, position.columns] = chessType;
             return true;
+        }
+        public int get (Position position)
+        {
+            return this.board[position.row, position.columns];
         }
         public void rollBack()
         {

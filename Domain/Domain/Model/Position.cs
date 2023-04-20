@@ -6,7 +6,7 @@ namespace Domain.Model
     {
         public Position()
         {
-
+            
         }
         public Position(int row, int columns)
         {

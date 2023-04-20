@@ -1,4 +1,5 @@
 ﻿using Domain.Model;
+using System.Diagnostics;
 
 namespace Domain.Board.Board
 {
@@ -7,13 +8,27 @@ namespace Domain.Board.Board
         public int _winner = 0;
         protected int _lastChessType = 0;
         private int[,] _board = new int[15, 15];
-        protected int[,] board
+        public int[,] board
         {
-            get => _board;
+            get {
+                Debug.WriteLine("get");
+                return _board;
+            }
+            set
+            {
+                Debug.WriteLine("set");
+                if (_winner != 0) return;
+                _board = value;
+                if (CheckWinner()) _winner = _lastChessType;
+            }
+        }
+        public int this[int row, int column]
+        {
+            get => _board[row, column];
             set
             {
                 if (_winner != 0) return;
-                _board = value;
+                _board[row, column] = value;
                 if (CheckWinner()) _winner = _lastChessType;
             }
         }

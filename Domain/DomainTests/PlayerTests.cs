@@ -2,11 +2,13 @@
 using Domain.Model;
 using Domain.Enum;
 using Domain.Board;
+using System.Diagnostics;
+using Domain.Board.Board;
 
 namespace Domain.Tests
 {
     [TestClass()]
-    public class PlayerTests
+    public class PlayerTests: Base
     {
         [Description("Given\r\n已有棋子：E7、F7、G7、H7\r\nWhen\r\n下棋：I7\r\nThen\r\n玩家獲勝")]
         [TestMethod()]
@@ -38,6 +40,11 @@ namespace Domain.Tests
             blackPlayer.put(board, new Position((int)Columns.I, 7));
             
             Assert.AreEqual((int)ChessType.Black, board._winner);
+        }
+        [TestMethod()]
+        public void test()
+        {
+            this[0, 0] = 1;
         }
     }
 }
