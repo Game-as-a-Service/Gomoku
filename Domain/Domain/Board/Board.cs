@@ -7,17 +7,16 @@ namespace Domain.Board
     {
         public bool set(Position position, int chessType)
         {
-            if (this.board[position.row, position.columns] != 0)
+            if (this[position.row, position.columns] != 0)
             {
                 return false;
             }
-            this._lastChessType = chessType;
-            board[position.row, position.columns] = chessType;
+            this[position.row, position.columns] = chessType;
             return true;
         }
         public int get (Position position)
         {
-            return this.board[position.row, position.columns];
+            return this[position.row, position.columns];
         }
         public void rollBack()
         {

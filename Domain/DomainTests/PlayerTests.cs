@@ -41,10 +41,5 @@ namespace Domain.Tests
             
             Assert.AreEqual((int)ChessType.Black, board._winner);
         }
-        [TestMethod()]
-        public void test()
-        {
-            this[0, 0] = 1;
-        }
     }
 }

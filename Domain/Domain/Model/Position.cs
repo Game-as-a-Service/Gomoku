@@ -4,10 +4,7 @@ namespace Domain.Model
 {
     public class Position
     {
-        public Position()
-        {
-            
-        }
+        public Position() { }
         public Position(int row, int columns)
         {
             this.row = row;

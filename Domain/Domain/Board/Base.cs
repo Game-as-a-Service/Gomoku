@@ -1,26 +1,21 @@
-﻿using Domain.Model;
+﻿using Domain.Enum;
+using Domain.Model;
 using System.Diagnostics;
 
 namespace Domain.Board.Board
 {
     public class Base
     {
-        public int _winner = 0;
-        protected int _lastChessType = 0;
-        private int[,] _board = new int[15, 15];
-        public int[,] board
+        public int _winner;
+        protected int _lastChessType;
+        private int[,] _board;
+        protected int[,] _visited;
+
+        public Base()
         {
-            get {
-                Debug.WriteLine("get");
-                return _board;
-            }
-            set
-            {
-                Debug.WriteLine("set");
-                if (_winner != 0) return;
-                _board = value;
-                if (CheckWinner()) _winner = _lastChessType;
-            }
+            _winner = 0;
+            _lastChessType = 0;
+            _board = new int[15, 15];
         }
         public int this[int row, int column]
         {
@@ -29,41 +24,53 @@ namespace Domain.Board.Board
             {
                 if (_winner != 0) return;
                 _board[row, column] = value;
-                if (CheckWinner()) _winner = _lastChessType;
+                this._lastChessType = _board[row, column];
+                if (CheckWinner(new Position(row, column))) _winner = _lastChessType;
             }
         }
-        protected int[,] _visited = new int[15, 15];
-
-        private static readonly List<Func<Position, Position>> _directions = new List<Func<Position, Position>>()
+        private static readonly List<List<Func<Position, Position>>> _directions = new List<List<Func<Position, Position>>>()
         {
-            p => new Position(p.row, p.columns + 1),
-            p => new Position(p.row + 1, p.columns),
-            p => new Position(p.row + 1, p.columns + 1),
-            p => new Position(p.row - 1, p.columns + 1)
+            new List<Func<Position, Position>> {
+                x => new Position(x.row, x.columns + 1),
+                x => new Position(x.row, x.columns - 1)
+            },
+            new List<Func<Position, Position>>
+            {
+                x => new Position(x.row+1, x.columns),
+                x => new Position(x.row-1, x.columns)
+            },
+            new List<Func<Position, Position>>{
+                x => new Position(x.row + 1, x.columns + 1),
+                x => new Position(x.row - 1, x.columns - 1),
+            },
+            new List<Func<Position, Position>>()
+            {
+                x => new Position(x.row - 1, x.columns + 1),
+                x => new Position(x.row + 1, x.columns - 1),
+            }
         };
-        protected bool CheckWinner()
+        protected bool CheckWinner(Position lastPosition)
         {
-            Position maxLength = new Position(board.Length - 1, board.GetLength(1) - 1);
+            Position maxLength = new Position(_board.GetLength(0) - 1, _board.GetLength(1) - 1);
+            _visited = new int[15, 15];
             foreach (var direction in _directions)
             {
-                var count = CheckWinInDirection(new Position(), maxLength, direction, 1);
-                if (count >= 5)
+                int count = 1;
+                foreach (var position in direction)
                 {
-                    return true;
+                    count = CheckWinInDirection(position(lastPosition), maxLength, position, count);
                 }
+                if (count == 5) return true;
             }
             return false;
         }
         protected int CheckWinInDirection(Position position, Position maxLength, Func<Position, Position> getNextPosition, int count)
         {
-            if (position.row > maxLength.row || position.columns > maxLength.columns || this._visited[position.row, position.columns] == 1) return 0;
-            this._visited[position.row, position.columns] = 1;
+            if (position.row < 0 || position.columns < 0 || position.row > maxLength.row || position.columns > maxLength.columns
+                || this._visited[position.row, position.columns] == 1 || this._board[position.row, position.columns] != this._lastChessType) return count;
 
-            if (this.board[position.row, position.columns] == this._lastChessType)
-            {
-                position = getNextPosition(position);
-                count = CheckWinInDirection(position, maxLength, getNextPosition, count + 1);
-            }
+            this._visited[position.row, position.columns] = 1;
+            count = CheckWinInDirection(getNextPosition(position), maxLength, getNextPosition, ++count);
             return count;
         }
     }
