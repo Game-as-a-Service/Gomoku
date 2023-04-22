@@ -41,11 +41,11 @@ namespace Domain.Tests
             this.whitePlayer.Move(board, new Position((int)Columns.G, 8));
             this.whitePlayer.Move(board, new Position((int)Columns.H, 8));
             #endregion
-            Assert.AreEqual((int)ChessType.None, board._winner);
+            Assert.AreEqual((int)ChessType.None, board.winner);
 
             this.blackPlayer.Move(board, new Position((int)Columns.I, 7));
-            
-            Assert.AreEqual((int)ChessType.Black, board._winner);
+
+            Assert.AreEqual((int)ChessType.Black, board.winner);
         }
         [Description("Given\r\n黑棋已有:E7、F7\r\n白棋已有:E8、F8\r\nWhen\r\n下棋：G7\r\nThen\r\n未獲勝")]
         [TestMethod()]
@@ -67,11 +67,11 @@ namespace Domain.Tests
             this.whitePlayer.Move(board, new Position((int)Columns.E, 8));
             this.whitePlayer.Move(board, new Position((int)Columns.F, 8));
             #endregion
-            Assert.AreEqual((int)ChessType.None, board._winner);
+            Assert.AreEqual((int)ChessType.None, board.winner);
 
             this.blackPlayer.Move(board, new Position((int)Columns.G, 7));
 
-            Assert.AreEqual((int)ChessType.None, board._winner);
+            Assert.AreEqual((int)ChessType.None, board.winner);
         }
     }
 }

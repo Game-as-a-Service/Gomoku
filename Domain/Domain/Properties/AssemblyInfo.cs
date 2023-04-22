@@ -14,8 +14,8 @@ using System.Runtime.InteropServices;
 
 [assembly: Guid("0485457d-80ed-413a-852b-08565e6d2cdd")]
 
-[assembly: AssemblyVersion("1.0.0.8")]
-[assembly: AssemblyFileVersion("1.0.0.8")]
+[assembly: AssemblyVersion("1.0.0.9")]
+[assembly: AssemblyFileVersion("1.0.0.9")]
 
 /*
  * version 1.0.0.0
@@ -36,4 +36,6 @@ using System.Runtime.InteropServices;
  * Rename the methods
  * version 1.0.0.8
  * Finsh the use case that's about player is not winner after move
+ * version 1.0.0.9
+ * Rename the variable name
  */
