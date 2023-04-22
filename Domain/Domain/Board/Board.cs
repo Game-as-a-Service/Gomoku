@@ -5,7 +5,7 @@ namespace Domain.Board
 {
     public class BoardFactory : Base
     {
-        public bool set(Position position, int chessType)
+        public bool Set(Position position, int chessType)
         {
             if (this[position.row, position.columns] != 0)
             {
@@ -14,15 +14,11 @@ namespace Domain.Board
             this[position.row, position.columns] = chessType;
             return true;
         }
-        public int get (Position position)
-        {
-            return this[position.row, position.columns];
-        }
-        public void rollBack()
+        public void RollBack()
         {
 
         }
-        public bool checkForLast()
+        public bool CheckForLast()
         {
             return true;
         }

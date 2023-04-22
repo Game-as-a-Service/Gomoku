@@ -10,11 +10,11 @@ namespace Domain
         {
             this.chessType = chessType;
         }
-        public void put(BoardFactory board, Position position)
+        public void Move(BoardFactory board, Position position)
         {
-            board.set(position, chessType);
+            board.Set(position, chessType);
         }
-        public void undoMove()
+        public void UndoMove()
         {
             
         }

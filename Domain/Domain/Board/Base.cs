@@ -1,6 +1,4 @@
-﻿using Domain.Enum;
-using Domain.Model;
-using System.Diagnostics;
+﻿using Domain.Model;
 
 namespace Domain.Board.Board
 {
@@ -16,6 +14,7 @@ namespace Domain.Board.Board
             _winner = 0;
             _lastChessType = 0;
             _board = new int[15, 15];
+            _visited = new int[15, 15];
         }
         public int this[int row, int column]
         {
@@ -49,7 +48,7 @@ namespace Domain.Board.Board
                 x => new Position(x.row + 1, x.columns - 1),
             }
         };
-        protected bool CheckWinner(Position lastPosition)
+        private bool CheckWinner(Position lastPosition)
         {
             Position maxLength = new Position(_board.GetLength(0) - 1, _board.GetLength(1) - 1);
             _visited = new int[15, 15];
@@ -64,7 +63,7 @@ namespace Domain.Board.Board
             }
             return false;
         }
-        protected int CheckWinInDirection(Position position, Position maxLength, Func<Position, Position> getNextPosition, int count)
+        private int CheckWinInDirection(Position position, Position maxLength, Func<Position, Position> getNextPosition, int count)
         {
             if (position.row < 0 || position.columns < 0 || position.row > maxLength.row || position.columns > maxLength.columns
                 || this._visited[position.row, position.columns] == 1 || this._board[position.row, position.columns] != this._lastChessType) return count;
