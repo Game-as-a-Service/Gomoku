@@ -14,8 +14,8 @@ using System.Runtime.InteropServices;
 
 [assembly: Guid("0485457d-80ed-413a-852b-08565e6d2cdd")]
 
-[assembly: AssemblyVersion("1.0.0.7")]
-[assembly: AssemblyFileVersion("1.0.0.7")]
+[assembly: AssemblyVersion("1.0.0.8")]
+[assembly: AssemblyFileVersion("1.0.0.8")]
 
 /*
  * version 1.0.0.0
@@ -31,7 +31,9 @@ using System.Runtime.InteropServices;
  * version 1.0.0.5
  * Fix the problem that's about no working setter
  * version 1.0.0.6
- * Finsh the use case that's about player is winner after move.
+ * Finsh the use case that's about player is winner after move
  * version 1.0.0.7
  * Rename the methods
+ * version 1.0.0.8
+ * Finsh the use case that's about player is not winner after move
  */
