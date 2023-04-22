@@ -9,7 +9,7 @@ namespace Domain.Board.Board
         private int[,] _board;
         private int[,] _visited;
         private int _count;
-        
+
         public Base()
         {
             winner = 0;
@@ -26,7 +26,9 @@ namespace Domain.Board.Board
                 if (this.winner != 0) return;
                 this._board[row, column] = value;
                 this._lastChessType = this._board[row, column];
+                this._count++;
                 if (CheckWinner(new Position(row, column))) this.winner = this._lastChessType;
+                if (this._count == _board.Length && this.winner == 0) this.winner = 3;
             }
         }
         private static readonly List<List<Func<Position, Position>>> _directions = new List<List<Func<Position, Position>>>()

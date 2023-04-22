@@ -2,7 +2,6 @@
 using Domain.Model;
 using Domain.Enum;
 using Domain.Board;
-using Domain.Board.Board;
 
 namespace Domain.Tests
 {
@@ -72,6 +71,23 @@ namespace Domain.Tests
             this.blackPlayer.Move(board, new Position((int)Columns.G, 7));
 
             Assert.AreEqual((int)ChessType.None, board.winner);
+        }
+        [Description("Given\r\n黑棋已有:E7、F7\r\n白棋已有:E8、F8\r\nWhen\r\n下棋：G7\r\nThen\r\n未獲勝")]
+        [TestMethod()]
+        public void PlayerMovePeaceTest()
+        {
+            BoardFactory board = new BoardFactory();
+            #region 設定已有棋子
+            for (var row = 0; row < 15; ++row)
+            {
+                for (var col = 0; col < 15; ++col)
+                {
+                    if ((row / 4 + col) % 2 == 0) blackPlayer.Move(board, new Position(row, col));
+                    else whitePlayer.Move(board, new Position(row, col));
+                }
+            }
+            Assert.AreEqual(3, board.winner);
+            #endregion
         }
     }
 }

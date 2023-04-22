@@ -14,8 +14,8 @@ using System.Runtime.InteropServices;
 
 [assembly: Guid("0485457d-80ed-413a-852b-08565e6d2cdd")]
 
-[assembly: AssemblyVersion("1.0.0.9")]
-[assembly: AssemblyFileVersion("1.0.0.9")]
+[assembly: AssemblyVersion("1.0.1.0")]
+[assembly: AssemblyFileVersion("1.0.1.0")]
 
 /*
  * version 1.0.0.0
@@ -38,4 +38,6 @@ using System.Runtime.InteropServices;
  * Finsh the use case that's about player is not winner after move
  * version 1.0.0.9
  * Rename the variable name
+ * version 1.0.1.0
+ * Complete the use case that's ended in a tie
  */
