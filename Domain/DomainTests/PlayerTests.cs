@@ -26,7 +26,7 @@ namespace Domain.Tests
         ///<para>Then：</para>
         ///<para>玩家獲勝</para>
         /// </summary>
-        public void PlayerMoveWinTest()
+        public void PlayerWinAfterMoveTest()
         {
             BoardFactory board = new BoardFactory();
 
@@ -57,7 +57,7 @@ namespace Domain.Tests
         ///<para>Then：</para>
         ///<para>玩家未獲勝</para>
         /// </summary>
-        public void PlayerMoveNotWinTest()
+        public void PlayerNotWinAfterMoveTest()
         {
             BoardFactory board = new BoardFactory();
             #region 設定已有棋子
@@ -74,7 +74,7 @@ namespace Domain.Tests
         }
         [Description("Given\r\n黑棋已有:E7、F7\r\n白棋已有:E8、F8\r\nWhen\r\n下棋：G7\r\nThen\r\n未獲勝")]
         [TestMethod()]
-        public void PlayerMovePeaceTest()
+        public void EndedInATieAfterMoveTest()
         {
             BoardFactory board = new BoardFactory();
             #region 設定已有棋子
